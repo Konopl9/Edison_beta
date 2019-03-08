@@ -1,0 +1,22 @@
+{%extends "edison/base.html" %}
+
+{% block title %}Teacher schedule{% endblock %}
+
+{% block content %}
+<h3>Teacher schedule</h3>
+    {% if teacher.schedule_set.all %}
+        {% for time in teacher.schedule_set.all %}
+                <p>*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*</p>
+                <b> {{ time.subject }} </b>
+                <b> {{ time.times }} </b>
+                <b> {{ time.days }} </b>
+
+                <p>*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*</p>
+
+
+        {% endfor %}
+    {% else %}
+        <p>Noone </p>
+    {% endif %}
+
+{% endblock %}

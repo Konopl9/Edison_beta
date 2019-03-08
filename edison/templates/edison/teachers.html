@@ -1,0 +1,30 @@
+{% extends "edison/base.html" %}
+
+{% block title %} Studenti{% endblock %}
+
+{% block content %}
+<h1>Teachers</h1>
+<a href="{% url 'teachersadd' %}">Add teacher</a>
+<table  class="table">
+  <tr>
+    <th>Name</th>
+    <th>Surename</th>
+    <th>Subject</th>
+      <th>Detail</th>
+    <th>Delete</th>
+  </tr>
+  {% if teachers %}
+  {% for teacher in teachers %}
+  	<tr>
+      <td>{{teacher.Teacher_name}}
+      <td>{{teacher.Teacher_surname}}
+    	<td>{{teacher.Teacher_subject}}
+      <td><a href="{% url 'teacherdetail' teacher.id %}">Detail</a>
+      <td><a href="{% url 'teacherdelete' teacher.id %}">Delete</a>
+    </tr>
+  {% endfor %}
+  {% else %}
+        <p>No teachers</p>
+  {% endif %}
+  </table>
+{% endblock %}

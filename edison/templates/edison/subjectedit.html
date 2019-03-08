@@ -1,0 +1,15 @@
+{% extends "edison/base.html" %}
+
+{% block title %} editace studenta {% endblock %}
+
+{% block content %}
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ error }}
+        {{ form.as_p }}
+         <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+
+
+{% endblock %}

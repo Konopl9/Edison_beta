@@ -1,0 +1,16 @@
+{%extends 'edison/base.html' %}
+
+{% block title %}STUDENTI{% endblock %}
+
+{% block content %}
+    <p>
+        <a href="{%url 'student' %}">Return to all students</a>
+    </p>
+
+    <p> Login:{{student.login}}</p>
+    <p> Name:{{student.name}}</p>
+    <p> Surname:{{student.surname}}</p>
+    <p> Address:{{student.address}}</p>
+    <p> Pass code:{{student.Pass_code}}</p>
+
+{% endblock %}

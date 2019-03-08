@@ -1,0 +1,30 @@
+{% extends 'edison/base.html' %}
+
+{% block title %} Students{% endblock %}
+
+{% block content %}
+<h1>Students</h1>
+<a href="{% url 'pridatstudent' %}" class="btn btn-warning btn-lg">Add student</a>
+    <table class="table">
+  <tr class="success">
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Login</th>
+    <th>Grade</th>
+    <th>Detail</th>
+      <th>Delete</th>
+    <th>Edit</th>
+  </tr>
+  {% for student in students %}
+  	<tr>
+      <td>{{student.name}}
+      <td>{{student.surname}}
+    	<td>{{student.login}}
+    	<td>{{student.grade}}
+      <td><a href="{% url 'studentdetail' student.id %}" class="btn btn-danger btn-sm">Detail</a>
+      <td><a href="{% url 'deletestudent' student.id %}"class="btn btn-warning btn-sm">Delete</a>
+  		<td><a href="{% url 'editacestudent' student.id %}"class="btn btn-success btn-sm">Edit</a>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

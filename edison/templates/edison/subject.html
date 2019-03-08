@@ -1,0 +1,32 @@
+{%extends "edison/base.html" %}
+
+{% block title %}Subject{% endblock %}
+
+{% block content %}
+   <h1>Subjects</h1>
+   <a href="{% url 'subjectadd' %}">Add subject</a>
+<table class="table">
+  <tr>
+    <th >Abbreviation</th>
+    <th>Title</th>
+    <th>Credit</th>
+    <th>Way of complete</th>
+    <th>DELETE</th>
+    <th>Edit</th>
+  </tr>
+  {% for subject in subjects %}
+  	<tr>
+      <td>{{subject.Subject_code}}
+      <td>{{subject.Subject_name}}
+    	<td>{{subject.Subject_points}}
+    	<td>{{subject.Subject_pass}}
+      <td><a href="{% url 'subjectdelete' subject.id %}">Delete</a>
+      <td><a href="{% url 'subjectedit' subject.id %}">Edit</a>
+    </tr>
+  {% endfor %}
+  </table>
+
+
+
+
+{% endblock %}

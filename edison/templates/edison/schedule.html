@@ -1,0 +1,100 @@
+{% extends "edison/base.html" %}
+
+{% block title %} Schedule{% endblock %}
+
+{% block content %}
+   <h1>Schedule</h1>
+
+   <a href="{% url 'scheduleadd' %}">Add schedule</a>
+   <table border=1 cellpadding=3  class="table">
+   <tr>
+   <td>Subject</td>
+   <td>Teacher</td>
+   <td>Time</td>
+   <td>Students</td>
+   <td>Delete</td>
+
+    <h3>Monday</h3>
+    {% for schedule in schedules %}
+
+      {% if schedule.days == 'Monday' %}
+      <tr>
+        <td>{{schedule.subject}}
+        <td>{{schedule.teacher}}
+        <td>{{schedule.times}}
+      	<td>{% for student in schedule.students.all %}{{ student }}, {% endfor %}
+        <td><a href="{% url 'scheduledelete' schedule.id %}">Delete</a>
+      </tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+
+    <table border=1 cellpadding=3  class="table">
+    <tr>
+   <td>Subject</td>
+   <td>Teacher</td>
+   <td>Time</td>
+   <td>Students</td>
+   <td>Delete</td>
+
+    <h3>Tuesday</h3>
+    {% for schedule in schedules %}
+
+      {% if schedule.days == 'Tuesday' %}
+      	<tr>
+          <td>{{schedule.subject}}
+          <td>{{schedule.teacher}}
+          <td>{{schedule.times}}
+        	<td>{% for student in schedule.students.all %}{{ student }}, {% endfor %}
+          <td><a href="{% url 'scheduledelete' schedule.id %}">Delete</a>
+        </tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+
+    <table border=1 cellpadding=3  class="table">
+   <tr>
+   <td>Subject</td>
+   <td>Teacher</td>
+   <td>Time</td>
+   <td>Students</td>
+   <td>Delete</td>
+
+    <h3>Wednesday</h3>
+    {% for schedule in schedules %}
+
+      {% if schedule.days == 'Wednesday' %}
+      	<tr>
+          <td>{{schedule.subject}}
+          <td>{{schedule.teacher}}
+          <td>{{schedule.times}}
+        	<td>{% for student in schedule.students.all %}{{ student }}, {% endfor %}
+          <td><a href="{% url 'scheduledelete' schedule.id %}">Delete</a>
+        </tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+
+   <table border=1 cellpadding=3  class="table">
+   <tr>
+   <td>Subject</td>
+   <td>Teacher</td>
+   <td>Time</td>
+   <td>Students</td>
+   <td>Delete</td>
+
+    <h3>Thursday</h3>
+    {% for schedule in schedules %}
+
+      {% if schedule.days == 'Thursday' %}
+      	<tr>
+          <td>{{schedule.subject}}
+          <td>{{schedule.teacher}}
+          <td>{{schedule.times}}
+        	<td>{% for student in schedule.students.all %}{{ student }}, {% endfor %}
+          <td><a href="{% url 'scheduledelete' schedule.id %}">Delete</a>
+        </tr>
+      {% endif %}
+    {% endfor %}
+    </table>
+{% endblock %}
